@@ -30,6 +30,10 @@ public class Vector extends JFrame implements KeyListener {
     private boolean rotarY = false;
     private boolean rotarZ = false;
 
+    private boolean mostrarVertices = true;
+    private boolean mostrarVerticesUnidos = false;
+    private boolean rellenarCreeper = false;
+
     // Definir los vértices de la cara en 3D
     private int[][] verticesCabeza = {
             {75, -300, 75},
@@ -322,53 +326,59 @@ public class Vector extends JFrame implements KeyListener {
 
         clearMyScreen();
 
-        fillPoligon3D(caras, verticesCabezaRotados, Color.GREEN);
-        fillPoligon3D(caras, verticesCuerpoRotados, Color.GREEN);
+        if(rellenarCreeper) {
+            fillPoligon3D(caras, verticesCabezaRotados, Color.GREEN);
+            fillPoligon3D(caras, verticesCuerpoRotados, Color.GREEN);
 
-        fillPoligon3D(caras, verticesPata1Rotados, Color.GREEN);
-        fillPoligon3D(caras, verticesPata2Rotados, Color.GREEN);
-        fillPoligon3D(caras, verticesPata3Rotados, Color.GREEN);
-        fillPoligon3D(caras, verticesPata4Rotados, Color.GREEN);
-        
-        fillPoligon3D(caras, verticesOjo1Rotados, Color.BLACK);
-        fillPoligon3D(caras, verticesOjo2Rotados, Color.BLACK);
-        
-        fillPoligon3D(caras, verticesBoca1Rotados, Color.BLACK);
-        fillPoligon3D(caras, verticesBoca2Rotados, Color.BLACK);
-        fillPoligon3D(caras, verticesBoca3Rotados, Color.BLACK);
+            fillPoligon3D(caras, verticesPata1Rotados, Color.GREEN);
+            fillPoligon3D(caras, verticesPata2Rotados, Color.GREEN);
+            fillPoligon3D(caras, verticesPata3Rotados, Color.GREEN);
+            fillPoligon3D(caras, verticesPata4Rotados, Color.GREEN);
+            
+            fillPoligon3D(caras, verticesOjo1Rotados, Color.BLACK);
+            fillPoligon3D(caras, verticesOjo2Rotados, Color.BLACK);
+            
+            fillPoligon3D(caras, verticesBoca1Rotados, Color.BLACK);
+            fillPoligon3D(caras, verticesBoca2Rotados, Color.BLACK);
+            fillPoligon3D(caras, verticesBoca3Rotados, Color.BLACK);
+        }
 
 
         // Dibujar los vértices
-        // dibujarVertices(verticesCabezaRotados, puntoDePerspectiva);
-        // dibujarVertices(verticesCuerpoRotados, puntoDePerspectiva);
+        else if(mostrarVertices) {
+            dibujarVertices(verticesCabezaRotados, puntoDePerspectiva);
+            dibujarVertices(verticesCuerpoRotados, puntoDePerspectiva);
 
-        // dibujarVertices(verticesPata1Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesPata2Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesPata3Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesPata4Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesPata1Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesPata2Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesPata3Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesPata4Rotados, puntoDePerspectiva);
 
-        // dibujarVertices(verticesOjo1Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesOjo2Rotados, puntoDePerspectiva);
-   
-        // dibujarVertices(verticesBoca1Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesBoca2Rotados, puntoDePerspectiva);
-        // dibujarVertices(verticesBoca3Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesOjo1Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesOjo2Rotados, puntoDePerspectiva);
+    
+            dibujarVertices(verticesBoca1Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesBoca2Rotados, puntoDePerspectiva);
+            dibujarVertices(verticesBoca3Rotados, puntoDePerspectiva);
 
+        }
         
-        // dibujarLineas(verticesCabezaRotados, Color.GREEN);          // Dibujar las líneas de la cabeza
-        // dibujarLineas(verticesCuerpoRotados, Color.GREEN);          // Dibujar las líneas del cueroi
+        else if(mostrarVerticesUnidos) {
+            dibujarLineas(verticesCabezaRotados, Color.GREEN);          // Dibujar las líneas de la cabeza
+            dibujarLineas(verticesCuerpoRotados, Color.GREEN);          // Dibujar las líneas del cueroi
 
-        // dibujarLineas(verticesPata1Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 1
-        // dibujarLineas(verticesPata2Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 2
-        // dibujarLineas(verticesPata3Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 3
-        // dibujarLineas(verticesPata4Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 4
+            dibujarLineas(verticesPata1Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 1
+            dibujarLineas(verticesPata2Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 2
+            dibujarLineas(verticesPata3Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 3
+            dibujarLineas(verticesPata4Rotados, Color.GREEN);           // Dibujar las líneas de la pata numero 4
 
-        // dibujarLineas(verticesOjo1Rotados, Color.BLACK);            // Dibujar las líneas del ojo numero 1
-        // dibujarLineas(verticesOjo2Rotados, Color.BLACK);            // Dibujar las líneas del ojo numero 2
+            dibujarLineas(verticesOjo1Rotados, Color.BLACK);            // Dibujar las líneas del ojo numero 1
+            dibujarLineas(verticesOjo2Rotados, Color.BLACK);            // Dibujar las líneas del ojo numero 2
 
-        // dibujarLineas(verticesBoca1Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 1
-        // dibujarLineas(verticesBoca2Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 2
-        // dibujarLineas(verticesBoca3Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 3
+            dibujarLineas(verticesBoca1Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 1
+            dibujarLineas(verticesBoca2Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 2
+            dibujarLineas(verticesBoca3Rotados, Color.BLACK);           // Dibujar las líneas de la boca numero 3
+        }
 
         // Repintar el JFrame para mostrar el cubo y la pirámide
         repaint();
@@ -483,6 +493,16 @@ public class Vector extends JFrame implements KeyListener {
             rotarY = true;
         } else if (e.getKeyChar() == 'z' && !rotarZ) {
             rotarZ = true;
+        } else if (e.getKeyChar() == 'q') {
+            mostrarVerticesUnidos = true;
+            mostrarVertices = false;
+        } else if (e.getKeyChar() == 'w') {
+            rellenarCreeper = true;
+            mostrarVerticesUnidos = false;
+        } else if (e.getKeyChar() == 'e') {
+            rellenarCreeper = false;
+            mostrarVerticesUnidos = false;
+            mostrarVertices = true;
         } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             xCabeza -= 10; // Ajusta la velocidad de traslación según sea necesario
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
